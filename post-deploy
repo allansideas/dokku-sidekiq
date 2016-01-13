@@ -20,8 +20,7 @@ if [[ -f "$DOKKU_ROOT/$APP/DEPLOY_SIDEKIQ" ]]; then
   fi
 
   # start a copy of the app and run sidekiq
-  OPTIONS=$(dokku docker-options $APP deploy | tail -n 1)
-
+  OPTIONS=$(dokku docker-options staging deploy | tail -n+2 | awk 'BEGIN {ORS=" "}{print}')
   id=$(docker run $OPTIONS -d $IMAGE  /exec bundle exec sidekiq)
   echo $id > "$DOKKU_ROOT/$APP/WORKER"
   echo "-----> Sidekiq worker started with ID $id"

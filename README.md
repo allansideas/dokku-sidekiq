@@ -12,7 +12,7 @@ Installation
 ------------
 ```
 cd /var/lib/dokku/plugins
-git clone https://github.com/bigboxsoftware/dokku-sidekiq sidekiq
+git clone https://github.com/rgp/dokku-sidekiq sidekiq
 dokku plugins-install
 ```
 

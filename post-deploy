@@ -14,7 +14,7 @@ if [[ -f "$DOKKU_ROOT/$APP/DEPLOY_SIDEKIQ" ]]; then
         if docker inspect $oldid > /dev/null
         then
           echo "-----> Killing old worker app $oldid"
-          docker kill $oldid > /dev/null
+          docker kill $oldid > /dev/null 2>&1
         fi
         rm $DOKKU_ROOT/$APP/WORKER
   fi
